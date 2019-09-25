@@ -15,3 +15,7 @@ You will also see any lint errors in the console.
 ### `yarn json-server server.json -p 3333`
 
 Runs the mock API on port 3333.
+
+### Reactotron
+
+To have a greater control and understanding of the app state, consider installing Reactotron. When the app starts, it will automatically link up the app.
