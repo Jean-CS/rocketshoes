@@ -19,3 +19,7 @@ Runs the mock API on port 3333.
 ### Reactotron
 
 To have a greater control and understanding of the app state, consider installing Reactotron. When the app starts, it will automatically link up the app.
+
+### Redux Action Names
+
+`@cart/ADD` - Name of the module followed by the action event
