@@ -10,9 +10,19 @@ export function removeFromCart(id) {
   return { type: '@cart/REMOVE', payload: id };
 }
 
-export function updateAmount(id, amount) {
+export function saga_updateAmountRequest(id, amount) {
   return {
-    type: '@cart/UPDATE_AMOUNT',
+    type: '@cart/UPDATE_AMOUNT_REQUEST',
+    payload: {
+      id,
+      amount,
+    },
+  };
+}
+
+export function updateAmountSuccess(id, amount) {
+  return {
+    type: '@cart/UPDATE_AMOUNT_SUCCESS',
     payload: {
       id,
       amount,
