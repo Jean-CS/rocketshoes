@@ -7,7 +7,7 @@ import { formatPrice } from '../../../util/format';
 
 import { addToCartSuccess, updateAmountSuccess } from './actions';
 
-function* addToCart({ payload }) {
+function* addToCart({ payload: id }) {
   const productExists = yield select(state => state.cart.find(p => p.id === id));
 
   const stock = yield call(api.get, `/stock/${id}`);
@@ -25,7 +25,7 @@ function* addToCart({ payload }) {
   if (productExists) {
     yield put(updateAmountSuccess(id, amount));
   } else {
-    const res = yield call(api.get, `/products/${payload}`);
+    const res = yield call(api.get, `/products/${id}`);
 
     const data = {
       ...res.data,
@@ -39,7 +39,7 @@ function* addToCart({ payload }) {
   }
 }
 
-function* updateAmount({ id, amount }) {
+function* updateAmount({ payload: { id, amount } }) {
   if (amount <= 0) return;
 
   const stock = yield call(api.get, `/stock/${id}`);

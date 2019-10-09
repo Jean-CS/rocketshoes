@@ -19,7 +19,7 @@ export default function cart(state = [], action) {
         const productIndex = draft.findIndex(p => p.id === action.payload.id);
 
         if (productIndex >= 0) {
-          draft[productIndex].amount = Number(amount);
+          draft[productIndex].amount = Number(action.payload.amount);
         }
       });
     }
